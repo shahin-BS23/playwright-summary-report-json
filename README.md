@@ -120,6 +120,8 @@ The `stats` object provides information on your test suite:
 | workers                  | number   | total number of workers used to run the suite                                                                                                                    |
 
 ## Credit 👏🏻
-<p align="center">  <img src="https://images.weserv.nl/?url=avatars.githubusercontent.com/u/7388976?v=4&h=300&w=300&fit=cover&mask=circle&maxage=7d" alt="avatar" style="border-radius: 50%; max-width: 100%; height: auto;">  </p>
 
-## Special thanks to [Stephen Kilbourn](https://github.com/stephenkilbourn), The original code was taken from his git repogitory. I just to modify it for my need.
+<p  align="center">  <img  src="https://images.weserv.nl/?url=avatars.githubusercontent.com/u/7388976?v=4&h=300&w=300&fit=cover&mask=circle&maxage=7d"  alt="avatar"  style="border-radius: 50%; max-width: 100%; height: auto;">  </p>
+
+## Special thanks to [Stephen Kilbourn](https://github.com/stephenkilbourn). 
+The original code, which served as the foundation for this work, was sourced from his Git repository. The code has been modified  to meed the unique needs and goals for my project.
