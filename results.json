@@ -1,0 +1,15 @@
+{
+  "Total Tests in Suite": 1,
+  "Total Tests Completed": 3,
+  "Tests Passed": 0,
+  "Tests Failed": 1,
+  "Flaky Tests": 1,
+  "Test Skipped": 0,
+  "Test run was failure free?": true,
+  "Duration of CPU usage in ms": 30000,
+  "Duration of entire test run in ms": 30000,
+  "Average Test Duration in ms": 10000,
+  "Test Suite Duration": "00:30 (mm:ss)",
+  "Average Test Duration": "00:10 (mm:ss)",
+  "Number of workers used for test run": 1
+}
