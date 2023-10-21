@@ -2,7 +2,6 @@ import { Config, expect, test } from '@playwright/test';
 import { Suite, TestCase, TestResult } from '@playwright/test/reporter';
 import { readFileSync } from 'fs';
 import mock from 'mock-fs';
-// import { log } from 'console';
 import PlaywrightReportSummary from '../src/index';
 
 const FakeTimers = require('@sinonjs/fake-timers');
@@ -385,23 +384,19 @@ test.describe('outputReport correctly writes files', () => {
     mock.restore();
   });
   test('write to default location if no outPut file provided', async () => {
-    const defaultString ={"Total Tests in Suite": 0,
-    "Total Tests Completed": 0,
-    "Tests Passed": 0,
-    "Tests Failed": 0,
-    "Flaky Tests": 0,
-    "Test Skipped": 0,
-    "Test run was failure free?": true,
-    "Duration of CPU usage in ms": 0,
-    "Duration of entire test run in ms": 0,
-    "Average Test Duration in ms": 0,
-    "Test Suite Duration": "00:00 (mm:ss)",
-    "Average Test Duration": "00:01 (mm:ss)",
-    "Number of workers used for test run": 1
-    
-    }
-    const jsonDefaultData = JSON.stringify(defaultString, null, 2);
-    
+    const defaultString = `Total Tests in Suite: 0,
+Total Tests Completed: 0,
+Tests Passed: 0,
+Tests Failed: 0,
+Flaky Tests: 0,
+Test Skipped: 0,
+Test run was failure free? true,
+Duration of CPU usage in ms: 0,
+Duration of entire test run in ms: 0,
+Average Test Duration in ms: 0,
+Test Suite Duration: 00:00 (mm:ss),
+Average Test Duration: 00:00 (mm:ss),
+Number of workers used for test run: 1`;
 
     const mockConfig: MockConfig = {
       workers: 1,
@@ -415,39 +410,24 @@ test.describe('outputReport correctly writes files', () => {
     await playwrightReportSummary.onBegin(mockConfig, mockSuite);
     await playwrightReportSummary.onEnd();
 
-    const result = readFileSync('results.json', 'utf8');
-    console.log(result)
-    console.log(jsonDefaultData)
-  //  await expect(result).toEqual(jsonData);
-
-  if (result === jsonDefaultData) {
-    console.log("Generated JSON matches the default JSON.");
-  } else {
-    console.log("Generated JSON does not match the default JSON.");
-  }
-
+    const result = readFileSync('results.txt', 'utf8');
+    await expect(result).toEqual(defaultString);
   });
 
   test('write to specified location if outPut filepath provided', async () => {
-    const defaultString ={"Total Tests in Suite": 0,
-    "Total Tests Completed": 0,
-    "Tests Passed": 0,
-    "Tests Failed": 0,
-    "Flaky Tests": 0,
-    "Test Skipped": 0,
-    "Test run was failure free?": true,
-    "Duration of CPU usage in ms": 0,
-    "Duration of entire test run in ms": 0,
-    "Average Test Duration in ms": 0,
-    "Test Suite Duration": "00:00 (mm:ss)",
-    "Average Test Duration": "00:01 (mm:ss)",
-    "Number of workers used for test run": 1
-    
-    }
-
-    const jsonDefaultData = JSON.stringify(defaultString, null, 2);
-
-    console.log(jsonDefaultData)
+    const defaultString = `Total Tests in Suite: 0,
+Total Tests Completed: 0,
+Tests Passed: 0,
+Tests Failed: 0,
+Flaky Tests: 0,
+Test Skipped: 0,
+Test run was failure free? true,
+Duration of CPU usage in ms: 0,
+Duration of entire test run in ms: 0,
+Average Test Duration in ms: 0,
+Test Suite Duration: 00:00 (mm:ss),
+Average Test Duration: 00:00 (mm:ss),
+Number of workers used for test run: 1`;
 
     const mockConfig: MockConfig = {
       workers: 1,
@@ -457,24 +437,14 @@ test.describe('outputReport correctly writes files', () => {
     };
 
     const playwrightReportSummary = new PlaywrightReportSummary({
-      outputFile: 'subdirectory/results.json',
+      outputFile: 'subdirectory/results.txt',
     });
 
     await playwrightReportSummary.onBegin(mockConfig, mockSuite);
     await playwrightReportSummary.onEnd();
 
-    const result = readFileSync('subdirectory/results.json', 'utf8');
-   // const parsedResult = JSON.parse(result); //
-    // console.log(result);
-    // console.log(jsonDefaultData)
-    //console.log(parsedResult)
-
-    //await expect(result).toEqual(jsonDefaultData);
-    if (result === jsonDefaultData) {
-      console.log("Generated JSON matches the default JSON.");
-    } else {
-      console.log("Generated JSON does not match the default JSON.");
-    }
+    const result = readFileSync('subdirectory/results.txt', 'utf8');
+    await expect(result).toEqual(defaultString);
   });
 
   test('write output of custom inputTemplate if provided', async () => {
@@ -494,12 +464,7 @@ test.describe('outputReport correctly writes files', () => {
     await playwrightReportSummary.onBegin(mockConfig, mockSuite);
     await playwrightReportSummary.onEnd();
 
-    const result = readFileSync('results.json', 'utf8');
-
-    //const resultJsonData = JSON.parse(result);
-    console.log('JSON Data:', result);
-    // const resultJSON = JSON.parse(result);
-    // await expect(resultJSON).toEqual('my custom template');
+    const result = readFileSync('results.txt', 'utf8');
     await expect(result).toEqual('my custom template');
   });
 

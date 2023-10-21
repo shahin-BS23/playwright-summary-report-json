@@ -86,7 +86,7 @@ class PlaywrightReportSummary implements Reporter {
 function outputReport(
   stats: Stats,
   inputTemplate?: Function,
-  outputFile: string = 'results.json',
+  outputFile: string = 'results.txt',
 ) {
   let reportString: string;
   const report = new DefaultReport(stats);

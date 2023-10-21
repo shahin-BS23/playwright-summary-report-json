@@ -1,15 +1,17 @@
-# 📜 🎭 Playwright Report JSON Summary  🎭  📜
+# 📜 🎭 Playwright Report Summary  🎭  📜
 
-Small JSON based custom reporter for Playwright.
+[![Coverage Status](https://coveralls.io/repos/github/stephenkilbourn/playwright-report-summary/badge.svg?branch=main)](https://coveralls.io/github/stephenkilbourn/playwright-report-summary?branch=main)
+
+Small text based custom reporter for Playwright.
 It can be handy to publish test results for things such as an SNS message or minimal Slack update. This Tool allows you to generate smaller reports with basic info about your test run.
 
 ## Table of Contents
 
-* [Installation ](#-configuration-)
-* [Configuration ](#-configuration-)
-* [Default Output](#default-output-)
-* [Customizing Outputs ](#customizing-outputs-)
-* [Available Stats ](#available-stats-)
+* [✨ Installation ✨](#-configuration-)
+* [📍 Configuration 📍](#-configuration-)
+* [ Default Output 📜](#default-output-)
+* [Customizing Outputs 👨‍💻](#customizing-outputs-)
+* [Available Stats 🧰](#available-stats-)
 
 ## ✨ Installation ✨
 
@@ -17,46 +19,44 @@ Run following commands:
 
 ### npm
 
-`npm install playwright-custom-json-summary-report --save-dev`
+`npm install @skilbourn/playwright-report-summary --save-dev`
 
 ### yarn
 
-`yarn add playwright-custom-json-summary-report --dev`
+`yarn add @skilbourn/playwright-report-summary --dev`
 
-## Configuration 
+## 📍 Configuration 📍
 
 Modify your `playwright.config.ts` file to include the reporter:
 
 ```typescript
   reporter: [
-    ['playwright-custom-json-summary-report', { outputFile: 'custom-summary.json' }]],
+    ['@skilbourn/playwright-report-summary', { outputFile: 'custom-summary.txt' }]],
     ['html'], // other reporters
     ['dot']
   ],
 ```
 
-The default output location will be to your root as `summary.json`  Including the optional `outputFile` parameter allows you to specify a custom report location.
+The default output location will be to your root as `summary.txt`  Including the optional `outputFile` parameter allows you to specify a custom report location.
 
 ## Default Output 📜
 
-If you do not pass an `outputFile` option, then the summary will be generated to a `summary.json` file in the following format:
+If you do not pass an `outputFile` option, then the summary will be generated to a `summary.txt` file in the following format:
 
-```JSON Format
-{
-  "Total Tests in Suite": 30,
-  "Total Tests Completed": 30,
-  "Tests Passed": 27,
-  "Tests Failed": 0,
-  "Flaky Tests": 0,
-  "Test run was failure free": true,
-  "Test Skipped": 3,
-  "Duration of CPU usage in ms": 75188,
-  "Duration of entire test run in ms": 12531,
-  "Average Test Duration in ms": 2506.3,
-  "Test Suite Duration": "00:13 (mm:ss)",
-  "Average Test Duration": "00:03 (mm:ss)",
-  "Number of workers used for test run": 6
-}
+```txt
+Total Tests in Suite: 30,
+Total Tests Completed: 30,
+Tests Passed: 27,
+Tests Failed: 0,
+Flaky Tests: 0,
+Test run was failure free? true,
+Test Skipped: 3,
+Duration of CPU usage in ms: 75188,
+Duration of entire test run in ms: 12531,
+Average Test Duration in ms:2506.3,
+Test Suite Duration: 00:13 (mm:ss),
+Average Test Duration: 00:03 (mm:ss),
+Number of workers used for test run: 6
 ```
 
 ## Customizing Outputs 👨‍💻
@@ -64,7 +64,7 @@ If you do not pass an `outputFile` option, then the summary will be generated to
 You may also create a custom report by leveraging the values in the [`stats`](#available-stats-🧰) object. To add a custom report leveraging your stats, create a function in the format:
 
 ```typescript
-import type { Stats } from 'playwright-custom-json-summary-report';
+import type { Stats } from '@skilbourn/playwright-report-summary';
 
 function customReport(stats: Stats) {
   return `Greetings, hello, ${stats.expectedResults} tests passed as expected in ${stats.formattedDurationSuite}`;
@@ -86,14 +86,14 @@ import customReport from './customReport';
 const config: PlaywrightTestConfig = {
   ...
   reporter: [
-    ['playwright-custom-json-summary-report', { outputFile: 'custom-summary.json', inputTemplate: customReport }]]
+    ['@skilbourn/playwright-report-summary', { outputFile: 'custom-summary.txt', inputTemplate: customReport }]]
   ],
 
 ```
 
-this will generate a `custom-summary.json` file such as :
+this will generate a `custom-summary.txt` file such as :
 
-```JSON
+```txt
 hello, 50 tests passed as expected in 03:51 (mm:ss)
 ```
 

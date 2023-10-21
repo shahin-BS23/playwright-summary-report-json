@@ -1,6 +1,6 @@
 {
-  "name": "playwright-custom-json-summary-report",
-  "version": "2.1.1",
+  "name": "@skilbourn/playwright-report-summary",
+  "version": "1.1.1",
   "description": "generate a customizable text summary of your playwright test results",
   "main": "./dist/index.js",
   "types": "./dist/types.d.ts",
@@ -18,21 +18,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shahin-BS23/playwright-summary-report-json.git"
+    "url": "git+https://github.com/stephenkilbourn/playwright-report-summary.git"
   },
   "keywords": [
     "playwright",
     "report"
   ],
+  "author": "Stephen Kilbourn <stephenkilbourn@gmail.com>",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/shahin-BS23/playwright-summary-report-json/issues"
+    "url": "https://github.com/stephenkilbourn/playwright-report-summary/issues"
   },
-  "homepage": "https://github.com/shahin-BS23/playwright-summary-report-json#readme",
+  "homepage": "https://github.com/stephenkilbourn/playwright-report-summary#readme",
   "devDependencies": {
     "@istanbuljs/nyc-config-typescript": "^1.0.2",
     "@playwright/test": "^1.39.0",
     "@sinonjs/fake-timers": "^9.1.2",
-    "playwright-custom-json-summary-report": "^2.1.1",
     "@types/node": "^18.7.23",
     "@types/sinonjs__fake-timers": "^8.1.2",
     "@typescript-eslint/eslint-plugin": "^5.38.1",
@@ -44,6 +45,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "mock-fs": "^5.1.4",
     "nyc": "^15.1.0",
+    "playwright": "^1.27.1",
     "playwright-test-coverage": "^1.2.0",
     "prettier": "^2.7.1",
     "source-map-support": "^0.5.21",
