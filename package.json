@@ -1,9 +1,9 @@
 {
   "name": "playwright-custom-json-summary-report",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "generate a customizable text summary of your playwright test results",
   "main": "./dist/index.js",
-  "types": "./dist/types.ts",
+  "types": "./dist/types.d.ts",
   "files": [
     "/dist"
   ],

@@ -2,7 +2,7 @@
   "compilerOptions": {
       "target": "ESNext",
       "module": "Node16",
-      "moduleResolution": "Node16",
+      "moduleResolution": "Node",
       "sourceMap": false,
       "outDir": "./dist",
       "declaration": true,
