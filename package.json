@@ -18,18 +18,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stephenkilbourn/playwright-report-summary.git"
+    "url": "git+https://github.com/shahin-BS23/playwright-summary-report-json"
   },
   "keywords": [
     "playwright",
     "report"
   ],
-  "author": "Stephen Kilbourn <stephenkilbourn@gmail.com>",
-  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/stephenkilbourn/playwright-report-summary/issues"
+    "url": "https://github.com/shahin-BS23/playwright-summary-report-json/issues"
   },
-  "homepage": "https://github.com/stephenkilbourn/playwright-report-summary#readme",
+  "homepage": "https://github.com/shahin-BS23/playwright-summary-report-json/issues#readme",
   "devDependencies": {
     "@istanbuljs/nyc-config-typescript": "^1.0.2",
     "@playwright/test": "^1.39.0",
