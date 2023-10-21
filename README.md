@@ -1,15 +1,16 @@
-# 📜 🎭 Playwright Report JSON Summary  🎭  📜
+# 📜 🎭 Playwright Summary Report JSON 🎭 📜
 
 Small JSON based custom reporter for Playwright.
 It can be handy to publish test results for things such as an SNS message or minimal Slack update. This Tool allows you to generate smaller reports with basic info about your test run.
 
 ## Table of Contents
 
-* [Installation ](#-configuration-)
+* [Installation ](#-installation-)
 * [Configuration ](#-configuration-)
 * [Default Output](#default-output-)
 * [Customizing Outputs ](#customizing-outputs-)
 * [Available Stats ](#available-stats-)
+* [Credit ](#credit-)
 
 ## ✨ Installation ✨
 
@@ -17,11 +18,11 @@ Run following commands:
 
 ### npm
 
-`npm install playwright-custom-json-summary-report --save-dev`
+`npm i playwright-custom-json-summary-report`
 
 ### yarn
 
-`yarn add playwright-custom-json-summary-report --dev`
+`yarn add playwright-custom-json-summary-report`
 
 ## Configuration 
 
@@ -117,3 +118,8 @@ The `stats` object provides information on your test suite:
 | formattedAvgTestDuration | string   | average test duration of all tests in mm:ss format                                                                                                               |
 | failures                 | object   | an object containing each failure  in the format `{[test.title: result.status]}` Retries with failures will populate this with multiple entries of the same test |
 | workers                  | number   | total number of workers used to run the suite                                                                                                                    |
+
+## Credit 👏🏻
+<p align="center">  <img src="https://images.weserv.nl/?url=avatars.githubusercontent.com/u/7388976?v=4&h=300&w=300&fit=cover&mask=circle&maxage=7d" alt="avatar" style="border-radius: 50%; max-width: 100%; height: auto;">  </p>
+
+## Special thanks to [Stephen Kilbourn](https://github.com/stephenkilbourn), The original code was taken from his git repogitory. I just to modify it for my need.
