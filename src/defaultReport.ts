@@ -3,7 +3,7 @@ import type { Stats } from './types';
 export default class DefaultReport {
   stats: Stats;
 
-  constructor(stats: { testsInSuite: number; totalTestsRun: number; expectedResults: number; unexpectedResults: number; flakyTests: number; testMarkedSkipped: number; failureFree: boolean; durationCPU: number; durationSuite: number; avgTestDuration: number; formattedDurationSuite: string; formattedAvgTestDuration: string; failures: object; workers: number; }) {
+  constructor(stats) {
     this.stats = stats;
   }
 
