@@ -1,5 +1,5 @@
 {
-  "name": "@playwright/summary-report-json",
+  "name": "playwright-custom-JSON-summary-report",
   "version": "1.1.2",
   "description": "generate a customizable text summary of your playwright test results",
   "main": "./dist/index.js",
@@ -34,7 +34,7 @@
     "@istanbuljs/nyc-config-typescript": "^1.0.2",
     "@playwright/test": "^1.39.0",
     "@sinonjs/fake-timers": "^9.1.2",
-    "@playwright/summary-report-json": "^1.1.1",
+    "playwright-custom-JSON-summary-report": "^1.1.1",
     "@types/node": "^18.7.23",
     "@types/sinonjs__fake-timers": "^8.1.2",
     "@typescript-eslint/eslint-plugin": "^5.38.1",

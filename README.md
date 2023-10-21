@@ -17,11 +17,11 @@ Run following commands:
 
 ### npm
 
-`npm install @playwright/summary-report-json --save-dev`
+`npm install playwright-custom-JSON-summary-report --save-dev`
 
 ### yarn
 
-`yarn add @playwright/summary-report-json --dev`
+`yarn add playwright-custom-JSON-summary-report --dev`
 
 ## Configuration 
 
@@ -29,7 +29,7 @@ Modify your `playwright.config.ts` file to include the reporter:
 
 ```typescript
   reporter: [
-    ['@playwright/summary-report-json', { outputFile: 'custom-summary.json' }]],
+    ['playwright-custom-JSON-summary-report', { outputFile: 'custom-summary.json' }]],
     ['html'], // other reporters
     ['dot']
   ],
@@ -64,7 +64,7 @@ If you do not pass an `outputFile` option, then the summary will be generated to
 You may also create a custom report by leveraging the values in the [`stats`](#available-stats-🧰) object. To add a custom report leveraging your stats, create a function in the format:
 
 ```typescript
-import type { Stats } from '@playwright/summary-report-json';
+import type { Stats } from 'playwright-custom-JSON-summary-report';
 
 function customReport(stats: Stats) {
   return `Greetings, hello, ${stats.expectedResults} tests passed as expected in ${stats.formattedDurationSuite}`;
@@ -86,7 +86,7 @@ import customReport from './customReport';
 const config: PlaywrightTestConfig = {
   ...
   reporter: [
-    ['@playwright/summary-report-json', { outputFile: 'custom-summary.json', inputTemplate: customReport }]]
+    ['playwright-custom-JSON-summary-report', { outputFile: 'custom-summary.json', inputTemplate: customReport }]]
   ],
 
 ```
